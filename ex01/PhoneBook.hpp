@@ -6,7 +6,7 @@
 /*   By: fvoicu <fvoicu@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 04:54:13 by fvoicu            #+#    #+#             */
-/*   Updated: 2024/04/15 05:13:34 by fvoicu           ###   ########.fr       */
+/*   Updated: 2024/04/16 09:38:35 by fvoicu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,13 @@
 class PhoneBook {
   Contact contacts[8];
   int     index;
-  
+
  public:
-  void addContact(const Contact& newContact);
+  PhoneBook();
+  void addContact();
   void searchContact();
-  void displayAll();
-}
+  void displayContacts();
+  ~PhoneBook();
+};
 
 #endif
