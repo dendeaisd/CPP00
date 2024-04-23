@@ -6,11 +6,11 @@
 #    By: fvoicu <fvoicu@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/15 04:28:12 by fvoicu            #+#    #+#              #
-#    Updated: 2024/04/23 16:33:49 by fvoicu           ###   ########.fr        #
+#    Updated: 2024/04/23 16:35:57 by fvoicu           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:=	megaphone
+NAME		:=		megaphone
 CC			:=		c++
 FLAGS		:=		-Wall -Wextra -Werror -std=c++98
 SRC			:=		main.cpp
@@ -19,7 +19,6 @@ OBJ			:=		$(SRC:.cpp=.o)
 # Colors
 CYAN		:= \033[38;5;6m
 GREEN		:= \033[0;32m
-YELLOW 	:= \033[93m
 MAGENTA	:= \033[0;95m
 RESET		:= \033[0m
 
