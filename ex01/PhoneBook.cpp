@@ -6,23 +6,29 @@
 /*   By: fvoicu <fvoicu@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 04:54:16 by fvoicu            #+#    #+#             */
-/*   Updated: 2024/04/23 22:13:57 by fvoicu           ###   ########.fr       */
+/*   Updated: 2024/04/24 01:50:50 by fvoicu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <iomanip>
 #include <limits>
+#include <sstream>
+#include <cstdlib>
 #include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook() : index(0) {}
 
 PhoneBook::~PhoneBook() {}
 
-void get_input(std::string str) {
-  std::getline(std::cin, str);
-  if (!std::cin || std::cin.eof())
-    exit(1);
+void get_input(std::string& str, std::string prompt) {
+  
+  while(str.empty()) {
+    std::cout << prompt;
+    std::getline(std::cin, str);
+    if (!std::cin || std::cin.eof())
+      exit(EXIT_FAILURE);
+  }
 }
 
 void PhoneBook::addContact() {
@@ -31,30 +37,33 @@ void PhoneBook::addContact() {
   std::string firstName, lastName, \
         nickName, phoneNumber, darkestSecret;
 
-  std::cout << "Enter first name: ";
-  get_input(firstName);
-  std::cout << "Enter last name: ";
-  get_input(lastName);
-  std::cout << "Enter nick name: ";
-  get_input(nickName);
-  std::cout << "Enter phone number: ";
-  get_input(phoneNumber);
-  std::cout << "Enter darkest secret: ";
-  get_input(darkestSecret);
-
+  get_input(firstName, "Enter first name: ");
+  get_input(lastName, "Enter last name: ");
+  get_input(nickName, "Enter nick name: ");
+  get_input(phoneNumber, "Enter phone number: ");
+  get_input(darkestSecret, "Enter darkest secret: ");
   contacts[index % 8].setDetails(firstName, lastName, nickName, \
                     phoneNumber, darkestSecret);
   index++;
 }
 
 void PhoneBook::searchContact() {
-  int idx;
+  int idx = 0;
+  std::string input;
 
   displayContacts();
   std::cout << "Enter the index of the contact to want to view: ";
-  std::cin >> idx;
-  if (idx < 0 || idx > 7) {
-    std::cout << "Invalid index" << std::endl;
+  std::getline(std::cin, input);
+  if (!std::cin || std::cin.eof())
+    exit(1);
+  if (input.length() > 1 || !isdigit(input[0])) {
+    std::cout << "Invalid index: index must be a single digit." << std::endl;
+    return;
+  }
+  idx = input[0] - '0';
+  if (idx < 0 || idx > 7 || idx >= index) {
+    std::cout << "Invalid index: index is out of allowed range." \
+               << std::endl;
     return;
   }
   contacts[idx].displayFull();

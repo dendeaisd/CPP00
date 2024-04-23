@@ -1,7 +1,7 @@
 #!/bin/bash
 
 spin() {
-	printf "\033[38;5;6m"
+	printf "\033[0;32m"
     local spin="/-\|"
     while :; do
         for i in $(seq 0 3); do

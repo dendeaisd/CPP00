@@ -6,11 +6,11 @@
 #    By: fvoicu <fvoicu@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/23 23:54:46 by fvoicu            #+#    #+#              #
-#    Updated: 2024/04/24 00:14:13 by fvoicu           ###   ########.fr        #
+#    Updated: 2024/04/24 00:47:47 by fvoicu           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			:= out
+NAME			:= account
 CC				:= c++
 FLAGS			:= -Wall -Wextra -Werror -std=c++98
 SRC				:= tests.cpp Account.cpp
@@ -37,7 +37,7 @@ $(NAME)		: $(OBJ)
 	@./spin.sh
 	@printf "$(UP)$(BEGIN)$(CUT)Compiling $@...$(RESET)\n"
 	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
-	@printf "$(UP)$(BEGIN)$(CUT)$(MAGENTA)PhoneBook compiled successfully✅$(RESET)\n"
+	@printf "$(UP)$(BEGIN)$(CUT)$(GREEN)Account compiled successfully✅$(RESET)\n"
 	@./progressbar.sh
 
 %.o				: %.cpp

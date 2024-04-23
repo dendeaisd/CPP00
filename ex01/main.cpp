@@ -6,7 +6,7 @@
 /*   By: fvoicu <fvoicu@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 07:58:02 by fvoicu            #+#    #+#             */
-/*   Updated: 2024/04/23 22:46:39 by fvoicu           ###   ########.fr       */
+/*   Updated: 2024/04/24 01:40:37 by fvoicu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,12 @@ void diplayGreeting() {
                "\033[38;2;255;0;255m╚═╝░░░░░╚═╝░░╚═╝░╚════╝░╚═╝░░╚══╝╚══════╝╚═════╝░░╚════╝░░╚════╝░╚═╝░░╚═╝\n" << std::endl;
   std::cout << RESET;
   std::cout << "\033[1m\033[38;2;64;224;208m";
-  std::cout << "Hi " << "\033[1m\033[93m" << getenv("USER") << "\033[0m" \
-            << "\033[1m\033[38;2;64;224;208m, welcome to your phone book!";
+  if (getenv("USER")) {
+    std::cout << "Hi " << "\033[1m\033[93m" << getenv("USER") << "\033[0m" \
+            << "\033[1m\033[38;2;64;224;208m, welcome to your phone book!" << "\U00002728" ;
+  } else {
+    std::cout << "Hi, welcome to your phone book!" <<  "\U00002728";
+  }
   std::cout << "\n\n";
   std::cout << RESET << std::endl;
 }
@@ -49,8 +53,8 @@ int main() {
     std::cout << "\033[38;2;255;105;180m" << \
           "Enter a command<ADD|SEARCH|EXIT>: " << "\033[0m";
 
-  if (!std::getline(std::cin, command) && std::cin.eof())
-    break;
+    if (!std::getline(std::cin, command) && std::cin.eof())
+      break;
     if (command == "ADD")
       phoneBook.addContact();
     else if (command == "SEARCH")
