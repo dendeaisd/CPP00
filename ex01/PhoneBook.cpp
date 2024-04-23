@@ -6,36 +6,41 @@
 /*   By: fvoicu <fvoicu@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 04:54:16 by fvoicu            #+#    #+#             */
-/*   Updated: 2024/04/16 10:02:51 by fvoicu           ###   ########.fr       */
+/*   Updated: 2024/04/23 22:13:57 by fvoicu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <iomanip>
+#include <limits>
 #include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook() : index(0) {}
 
 PhoneBook::~PhoneBook() {}
 
+void get_input(std::string str) {
+  std::getline(std::cin, str);
+  if (!std::cin || std::cin.eof())
+    exit(1);
+}
+
 void PhoneBook::addContact() {
   if (index > 7)
     std::cout << "Repalcing the oldest contact" << std::endl;
   std::string firstName, lastName, \
         nickName, phoneNumber, darkestSecret;
-  
-  std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
   std::cout << "Enter first name: ";
-  std::getline(std::cin, firstName);
+  get_input(firstName);
   std::cout << "Enter last name: ";
-  std::getline(std::cin, lastName);
+  get_input(lastName);
   std::cout << "Enter nick name: ";
-  std::getline(std::cin, nickName);
+  get_input(nickName);
   std::cout << "Enter phone number: ";
-  std::getline(std::cin, phoneNumber);
+  get_input(phoneNumber);
   std::cout << "Enter darkest secret: ";
-  std::getline(std::cin, darkestSecret);
+  get_input(darkestSecret);
 
   contacts[index % 8].setDetails(firstName, lastName, nickName, \
                     phoneNumber, darkestSecret);
