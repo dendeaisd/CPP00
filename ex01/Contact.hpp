@@ -6,7 +6,7 @@
 /*   By: fvoicu <fvoicu@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 05:01:10 by fvoicu            #+#    #+#             */
-/*   Updated: 2024/04/16 09:27:10 by fvoicu           ###   ########.fr       */
+/*   Updated: 2024/04/29 03:40:12 by fvoicu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,19 @@
 # include <string>
 
 class Contact {
-  std::string firstName;
-  std::string lastName;
-  std::string nickName;
-  std::string phoneNumber;
-  std::string darkestSecret;
+
+ private:
+  std::string _firstName;
+  std::string _lastName;
+  std::string _nickName;
+  std::string _phoneNumber;
+  std::string _darkestSecret;
 
  public:
   Contact();
-  void setDetails(std::string firstName, std::string lastName, \
-        std::string nickName, std::string phoneNumber, \
-        std::string darkestSecret);
+  void setDetails(std::string _firstName, std::string _lastName, \
+        std::string _nickName, std::string _phoneNumber, \
+        std::string _darkestSecret);
   std::string truncate(std::string str);
   void displayShort(int idx);
   void displayFull();

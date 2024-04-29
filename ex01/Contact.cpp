@@ -6,7 +6,7 @@
 /*   By: fvoicu <fvoicu@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 07:53:44 by fvoicu            #+#    #+#             */
-/*   Updated: 2024/04/24 01:42:01 by fvoicu           ###   ########.fr       */
+/*   Updated: 2024/04/29 03:40:12 by fvoicu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ Contact::Contact() {}
 
 Contact::~Contact() {}
 
-void Contact::setDetails(std::string firstName, std::string lastName, \
-      std::string nickName, std::string phoneNumber, \
-      std::string darkestSecret) {
-  this->firstName = firstName;
-  this->lastName = lastName;
-  this->nickName = nickName;
-  this->phoneNumber = phoneNumber;
-  this->darkestSecret = darkestSecret;
+void Contact::setDetails(std::string _firstName, std::string _lastName, \
+      std::string _nickName, std::string _phoneNumber, \
+      std::string _darkestSecret) {
+  this->_firstName = _firstName;
+  this->_lastName = _lastName;
+  this->_nickName = _nickName;
+  this->_phoneNumber = _phoneNumber;
+  this->_darkestSecret = _darkestSecret;
 }
 
 std::string Contact::truncate(std::string str) {
@@ -40,15 +40,15 @@ void Contact::displayShort(int idx) {
     return;
   }
   std::cout << std::setw(10) << idx << "|";
-  std::cout << std::setw(10) << truncate(firstName) << "|";
-  std::cout << std::setw(10) << truncate(lastName) << "|";
-  std::cout << std::setw(10) << truncate(nickName) << "|" << std::endl;
+  std::cout << std::setw(10) << truncate(_firstName) << "|";
+  std::cout << std::setw(10) << truncate(_lastName) << "|";
+  std::cout << std::setw(10) << truncate(_nickName) << "|" << std::endl;
 }
 
 void Contact::displayFull() {
-  std::cout << "First name: " << firstName << std::endl;
-  std::cout << "Last name: " << lastName << std::endl;
-  std::cout << "Nick name: " << nickName << std::endl;
-  std::cout << "Phone number: " << phoneNumber << std::endl;
-  std::cout << "Darkest secret: " << darkestSecret << std::endl;
+  std::cout << "First name: " << _firstName << std::endl;
+  std::cout << "Last name: " << _lastName << std::endl;
+  std::cout << "Nick name: " << _nickName << std::endl;
+  std::cout << "Phone number: " << _phoneNumber << std::endl;
+  std::cout << "Darkest secret: " << _darkestSecret << std::endl;
 }

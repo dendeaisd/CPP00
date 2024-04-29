@@ -6,7 +6,7 @@
 /*   By: fvoicu <fvoicu@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 04:54:16 by fvoicu            #+#    #+#             */
-/*   Updated: 2024/04/24 01:50:50 by fvoicu           ###   ########.fr       */
+/*   Updated: 2024/04/29 03:40:12 by fvoicu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,16 @@ void get_input(std::string& str, std::string prompt) {
 void PhoneBook::addContact() {
   if (index > 7)
     std::cout << "Repalcing the oldest contact" << std::endl;
-  std::string firstName, lastName, \
-        nickName, phoneNumber, darkestSecret;
+  std::string _firstName, _lastName, \
+        _nickName, _phoneNumber, _darkestSecret;
 
-  get_input(firstName, "Enter first name: ");
-  get_input(lastName, "Enter last name: ");
-  get_input(nickName, "Enter nick name: ");
-  get_input(phoneNumber, "Enter phone number: ");
-  get_input(darkestSecret, "Enter darkest secret: ");
-  contacts[index % 8].setDetails(firstName, lastName, nickName, \
-                    phoneNumber, darkestSecret);
+  get_input(_firstName, "Enter first name: ");
+  get_input(_lastName, "Enter last name: ");
+  get_input(_nickName, "Enter nick name: ");
+  get_input(_phoneNumber, "Enter phone number: ");
+  get_input(_darkestSecret, "Enter darkest secret: ");
+  contacts[index % 8].setDetails(_firstName, _lastName, _nickName, \
+                    _phoneNumber, _darkestSecret);
   index++;
 }
 
